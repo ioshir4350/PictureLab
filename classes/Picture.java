@@ -84,7 +84,29 @@ public class Picture extends SimplePicture
     return output;
     
   }
-  
+  public void FixUnderwater()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        int red = Math.abs(pixelObj.getRed() - 21);
+        int green = Math.abs(pixelObj.getGreen() - 163);
+        int blue = Math.abs(pixelObj.getBlue() - 173);
+
+        // (R, G, B) is (21, 163, 173)
+        int difference = red + green + blue;
+        if (difference > 21) {
+          pixelObj.setRed(0);
+          pixelObj.setGreen(0);
+          pixelObj.setBlue(0);
+        }
+      }
+    }
+  }
+
+
   /** Method to set the blue to 0 */
   public void zeroBlue()
   {
@@ -148,6 +170,40 @@ public class Picture extends SimplePicture
         rightPixel.setColor(leftPixel.getColor());
       }
     } 
+  }
+
+  public void mirrorVerticalRightToLeft()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int width = pixels[0].length;
+    for (int row = 0; row < pixels.length; row++)
+    {
+      for (int col = 0; col < width / 2; col++)
+      {
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row][width - 1 - col];
+        leftPixel.setColor(rightPixel.getColor());
+      }
+    }
+  }
+
+  public void mirrorHorizontal()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int width = pixels[0].length;
+    for (int row = 0; row < pixels.length/2; row++)
+    {
+      for (int col = 0; col < width; col++)
+      {
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row][width - 1 - col];
+        leftPixel.setColor(rightPixel.getColor());
+      }
+    }
   }
   
   /** Mirror just part of a picture of a temple */
