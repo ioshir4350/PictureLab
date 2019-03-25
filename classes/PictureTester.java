@@ -35,12 +35,26 @@ public class PictureTester {
     beach.Grayscale();
   }
 
+  public static void testFixUnderwater() {
+    Picture water = new Picture("water.jpg");
+    water.FixUnderwater();
+  }
+
+  public static void testmirrorVerticalRightToLeft() {
+    Picture redMotorcycle = new Picture("redMotorcycle.jpg");
+    redMotorcycle.explore();
+    redMotorcycle.mirrorVerticalRightToLeft();
+    redMotorcycle.explore();
+    redMotorcycle.mirrorVerticalRightToLeft();
+  }
+
   public static void testMirrorVertical() {
     Picture caterpillar = new Picture("caterpillar.jpg");
     caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
   }
+
 
   /**
    * Method to test mirrorTemple
@@ -51,6 +65,13 @@ public class PictureTester {
     temple.mirrorTemple();
     temple.explore();
   }
+  public static void testWater() {
+    Picture water = new Picture("redMotorcycle.jpg");
+    water.explore();
+    water.mirrorTemple();
+    water.explore();
+  }
+
 
   /**
    * Method to test the collage method
@@ -84,9 +105,11 @@ public class PictureTester {
     //testKeepOnlyGreen();
     testNegate();
     testGrayscale();
-    //testFixUnderwater();
+    testFixUnderwater();
     testMirrorVertical();
     testMirrorTemple();
+    testWater();
+    testmirrorVerticalRightToLeft();
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
