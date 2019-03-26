@@ -45,7 +45,7 @@ public class PictureTester {
     redMotorcycle.explore();
     redMotorcycle.mirrorVerticalRightToLeft();
     redMotorcycle.explore();
-    redMotorcycle.mirrorVerticalRightToLeft();
+
   }
 
   public static void testMirrorVertical() {
@@ -53,6 +53,30 @@ public class PictureTester {
     caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
+  }
+
+  public static void testmirrorHorizontal()
+  {
+    Picture redMotorcycle = new Picture("redMotorcycle.jpg");
+    redMotorcycle.explore();
+    redMotorcycle.mirrorHorizontal();
+    redMotorcycle.explore();
+  }
+
+  public static void testmirrorHorizontalBotToTop()
+  {
+    Picture redMotorcycle = new Picture("redMotorcycle.jpg");
+    redMotorcycle.explore();
+    redMotorcycle.mirrorHorizontalBotToTop();
+    redMotorcycle.explore();
+  }
+
+  public static void testmirrorDiagonal()
+  {
+    Picture redMotorcycle = new Picture("redMotorcycle.jpg");
+    redMotorcycle.explore();
+    redMotorcycle.mirrorDiagonal();
+    redMotorcycle.explore();
   }
 
 
@@ -110,6 +134,9 @@ public class PictureTester {
     testMirrorTemple();
     testWater();
     testmirrorVerticalRightToLeft();
+    testmirrorHorizontal();
+    testmirrorHorizontalBotToTop();
+    testmirrorDiagonal();
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
